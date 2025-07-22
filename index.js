@@ -1,11 +1,11 @@
 export default {
     prints: {
         pdf: {
-            contract: {
+            'ssm.contract': {
                 params: ['contractId'],
                 title: 'Contract for Purchase of Interment Rights (SSM)'
             },
-            'contract.burialPermit': {
+            'ssm.contract.burialPermit': {
                 params: ['contractId'],
                 title: 'Burial Permit (SSM)'
             }

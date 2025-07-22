@@ -1,11 +1,11 @@
 declare const _default: {
     prints: {
         pdf: {
-            contract: {
+            'ssm.contract': {
                 params: "contractId"[];
                 title: string;
             };
-            'contract.burialPermit': {
+            'ssm.contract.burialPermit': {
                 params: "contractId"[];
                 title: string;
             };
