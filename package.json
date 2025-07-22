@@ -1,0 +1,34 @@
+{
+  "name": "sunrise-cms-saultstemarie",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sault Ste. Marie specific assets for use with Sunrise CMS.",
+  "keywords": [
+    "sunrise-cms"
+  ],
+  "homepage": "https://github.com/cityssm/sunrise-cms-saultstemarie#readme",
+  "bugs": {
+    "url": "https://github.com/cityssm/sunrise-cms-saultstemarie/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cityssm/sunrise-cms-saultstemarie.git"
+  },
+  "license": "MIT",
+  "author": "The Corporation of the City of Sault Ste. Marie",
+  "type": "module",
+  "exports": {
+    ".": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "sunrise-cms-customizations": "github:cityssm/sunrise-cms-customizations"
+  },
+  "devDependencies": {
+    "@types/node": "^24.1.0",
+    "eslint-config-cityssm": "^27.0.0",
+    "prettier-config-cityssm": "^1.0.0"
+  }
+}
