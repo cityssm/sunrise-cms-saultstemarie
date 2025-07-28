@@ -1,2 +1,3 @@
-declare const config: import("@typescript-eslint/utils/ts-eslint").FlatConfig.ConfigFile;
+import { type Config } from 'eslint-config-cityssm';
+declare const config: Config;
 export default config;

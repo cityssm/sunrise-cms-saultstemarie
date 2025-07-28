@@ -4,6 +4,16 @@ declare const _default: {
             'ssm.contract': {
                 params: "contractId"[];
                 title: string;
+                consignoCloud: {
+                    anchors: {
+                        tag: string;
+                        xOffset: number;
+                        yOffset: number;
+                        height: number;
+                        width: number;
+                        page: string;
+                    }[];
+                };
             };
             'ssm.contract.burialPermit': {
                 params: "contractId"[];

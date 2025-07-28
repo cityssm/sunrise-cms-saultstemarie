@@ -247,7 +247,11 @@
               </tr><tr>
                 <td colspan="2"><strong>Balance Owing</strong></td>
                 <td class="has-text-right">
-                  <strong>$<%= (feeAmountTotal + taxAmountTotal - contractFunctions.getTransactionTotal(contract)).toFixed(2) %></strong>
+                  <% if ((feeAmountTotal + taxAmountTotal).toFixed(2) === contractFunctions.getTransactionTotal(contract).toFixed(2)) { %>
+                    <strong>$0.00</strong>
+                  <% } else { %>
+                    <strong>$<%= (feeAmountTotal + taxAmountTotal - contractFunctions.getTransactionTotal(contract)).toFixed(2) %></strong>
+                  <% } %>
                 </td>
               </tr>
             </tbody>
@@ -415,25 +419,53 @@
         Guide (where made available by the Registrar) and the Cemetery Price List at the time of entering into this Contract.
     </p>
 
-    <ul class="confirmList">
-      <li>
-        I hereby acknowledge that I have been offered and/or received a copy of the Ontario Government's Consumer
-        Information Guide and the Cemetery Price List.
-      </li>
-      <li>
-        I have reviewed the terms and conditions of the Contract and hereby confirm that the interment rights and cemetery
-        services as specified in this Contract are complete and correct. I direct the Corporation to proceed with the sale of the
-        interment right(s) as identified in this Contract in accordance with the Cemetery By-law 2012-129 which is now or at any
-        time hereinafter in force.
-      </li>
-      <li>
-        I hereby acknowledge that I have received and reviewed a copy of Cemetery By-law 2012-129.
-      </li>
-      <li>
-        I acknowledge having received a copy of this Contract, and will assume full responsibility for payment of the total
-        Contract price to the Corporation in accordance with the terms and conditions of the Contract.
-      </li>
-    </ul>
+    <table class="layout-table is-10pt">
+      <tr>
+        <td style="vertical-align: bottom;">
+          <span class="field has-text-white" style="width:80px">
+            {{initials1}}&nbsp;
+          </span>
+        </td>
+        <td>
+          I hereby acknowledge that I have been offered and/or received a copy of the Ontario Government's Consumer
+          Information Guide and the Cemetery Price List.
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align: bottom;">
+          <span class="field has-text-white" style="width:80px">
+            {{initials2}}&nbsp;
+          </span>
+        </td>
+        <td>
+          I have reviewed the terms and conditions of the Contract and hereby confirm that the interment rights and cemetery
+          services as specified in this Contract are complete and correct. I direct the Corporation to proceed with the sale of the
+          interment right(s) as identified in this Contract in accordance with the Cemetery By-law 2012-129 which is now or at any
+          time hereinafter in force.
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align: bottom;">
+          <span class="field has-text-white" style="width:80px">
+            {{initials3}}&nbsp;
+          </span>
+        </td>
+        <td>
+          I acknowledge that I have received a copy of the Cemetery By-law 2012-129.
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align: bottom;">
+          <span class="field has-text-white" style="width:80px">
+            {{initials4}}&nbsp;
+          </span>
+        </td>
+        <td>
+          I acknowledge that I have received a copy of this Contract, and will assume full responsibility for payment of the total
+          Contract price to the Corporation in accordance with the terms and conditions of the Contract.
+        </td>
+      </tr>
+    </table>
 
     <p>
       The Contract date set out below is the date on which this Contract is accepted by the Corporation.
@@ -441,13 +473,9 @@
 
     <p>
       Purchaser:
-      <span class="field" style="width:400px">&nbsp;</span>
-      Date:
-      <span class="field" style="width:200px">&nbsp;</span>
-    </p>
-    <p>
-      Purchaser:
-      <span class="field" style="width:400px">&nbsp;</span>
+      <span class="field has-text-white" style="width:400px">
+        {{signature1}}&nbsp;
+      </span>
       Date:
       <span class="field" style="width:200px">&nbsp;</span>
     </p>

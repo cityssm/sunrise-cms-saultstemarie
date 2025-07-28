@@ -1,6 +1,6 @@
 {
   "name": "sunrise-cms-saultstemarie",
-  "version": "1.0.0",
+  "version": "1.0.20250728",
   "private": true,
   "description": "Sault Ste. Marie specific assets for use with Sunrise CMS.",
   "keywords": [
@@ -24,7 +24,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "sunrise-cms-customizations": "^0.0.1"
+    "sunrise-cms-customizations": "^0.0.2"
   },
   "devDependencies": {
     "@types/node": "^24.1.0",

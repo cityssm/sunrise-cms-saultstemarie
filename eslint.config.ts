@@ -1,11 +1,21 @@
 import eslintConfigCityssm, {
   type Config,
+  cspellWords,
   tseslint
 } from 'eslint-config-cityssm'
 
 const config = tseslint.config(...eslintConfigCityssm, {
   files: ['**/*.ts'],
-  rules: {}
+  rules: {
+    '@cspell/spellchecker': [
+      'warn',
+      {
+        cspell: {
+          words: [...cspellWords, 'consigno']
+        }
+      }
+    ]
+  }
 }) as Config
 
 export default config

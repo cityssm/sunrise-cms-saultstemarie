@@ -166,3 +166,7 @@ td.has-border-bottom {
 .has-text-nowrap {
   white-space: nowrap;
 }
+
+.has-text-white {
+  color: white;
+}
