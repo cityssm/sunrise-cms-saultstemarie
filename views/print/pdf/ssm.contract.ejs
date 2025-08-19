@@ -171,19 +171,19 @@
           <table class="is-10pt data-table">
             <tr>
               <td>Cemetery</td>
-              <td><%= contract.cemeteryName ?? '(No ' + configFunctions.getConfigProperty("aliases.map") + ')' %></td>
+              <td><%= contract.cemeteryName ?? '(No Cemetery)' %></td>
             </tr>
             <tr>
               <td>Burial Site</td>
-              <td><%= contract.burialSiteName ?? '(No ' + configFunctions.getConfigProperty("aliases.lot") + ')' %></td>
+              <td><%= contract.burialSiteName ?? '(No Burial Site)' %></td>
             </tr>
             <% 
               for (const field of contract.contractFields) { 
-                if (!recipientFields.includes(field.contractTypeField) && field.contractFieldValue) {
+                if (field.fieldValue) {
             %>
                 <tr>
                   <td><%= field.contractTypeField %></td>
-                  <td><%= field.contractFieldValue %></td>
+                  <td><%= field.fieldValue %></td>
                 </tr>
             <% 
                 }
