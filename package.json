@@ -27,8 +27,8 @@
     "sunrise-cms-customizations": "^0.0.2"
   },
   "devDependencies": {
-    "@types/node": "^26.3.0",
-    "eslint-config-cityssm": "^48.1.0",
-    "prettier-config-cityssm": "^2.1.3"
+    "@types/node": "^26.6.6",
+    "eslint-config-cityssm": "^60.0.1",
+    "prettier-config-cityssm": "^2.3.0"
   }
 }
