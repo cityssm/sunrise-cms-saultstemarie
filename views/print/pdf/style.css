@@ -65,10 +65,10 @@ body {
   border: 0;
   margin: 0;
   padding: 0;
-}
-
-.layout-table td {
-  vertical-align: top;
+  
+  td {
+    vertical-align: top;
+  }
 }
 
 /* Table Helpers */
@@ -143,6 +143,10 @@ td.has-border-bottom {
 
 .is-12pt {
   font-size: 12pt !important;
+}
+
+.is-14pt {
+  font-size: 14pt !important;
 }
 
 .has-text-left {

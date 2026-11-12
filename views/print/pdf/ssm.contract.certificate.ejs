@@ -5,14 +5,46 @@
     <style>
       <%- include('style.css'); %>
 
+      body {
+        margin: 0 40px;
+        font-size: 11pt;
+      }
+
       .data-table tbody tr:first-child td {
         border-top: 0;
+      }
 
+      .page-break {
+        page-break-before: always;
+        margin-top: 30px;
+      }
+
+      .blank-line {
+        display: inline-block;
+        min-height: 1.2em;
+        min-width: 30px;
+        border-bottom: 1px solid black;
+        vertical-align: bottom;
+      }
+
+      .blank-field {
+        margin: 12px 0;
+      }
+
+      .blank-field .blank-line {
+        display: block;
+        width: 100%;
+        max-width: 420px;
+      }
+
+      .field-label {
+        margin-top: 4px;
+        font-size: 9pt;
       }
     </style>
   </head>
-  <body class="is-10pt">
-    <h1 class="is-12pt has-text-centered is-capitalized">
+  <body class="is-12pt">
+    <h1 class="is-14pt has-text-centered is-capitalized">
       The Corporation of the City of Sault Ste. Marie<br />
       <strong>Certificate of Interment Rights</strong>
     </h1>
@@ -37,7 +69,7 @@
       and Regulations and all amendments thereto:
     </p>
 
-    <table class="layout-table is-10pt">
+    <table class="layout-table is-12pt">
       <tbody>
         <tr>
           <td>
@@ -48,7 +80,7 @@
             <%= contract.purchaserPostalCode %>
           </td>
           <td>
-            <table class="is-10pt data-table">
+            <table class="is-12pt data-table">
               <tbody>
                 <%
                 let currentFeeCategory = "";
@@ -147,5 +179,151 @@
 
     <p>In WITNESS whereof the Corporation has affixed its signature by the hands of its proper signing officers this</p>
 
+    <table class="layout-table">
+      <tr>
+        <td>
+          <p>
+            <span class="blank-line" style="width: 40px; margin-left: 6px; margin-right: 6px"></span>
+            day of
+            <span class="blank-line" style="width: 40px; margin-left: 6px; margin-right: 6px"></span>,
+            <span class="blank-line" style="width: 40px; margin-left: 6px"></span>
+          </p>
+        </td>
+        <td>
+          <div class="blank-field" style="max-width: 560px;">
+            <span class="blank-line" style="width: 280px"></span>
+            <div class="field-label">for the Corporation of the City of Sault Ste. Marie</div>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <div class="page-break is-10pt">
+      <h2 class="is-12pt has-text-centered is-capitalized">Resale Endorsement</h2>
+
+      <h3>Part 1 - Interment Rights Holder(s)' Endorsement of Sale</h3>
+      <p>
+        I/We the Interment Rights Certificate Holder registered on the cemetery records, hereby wish to sell the Interment Rights in
+        <span class="blank-line" style="width: 300px; margin-left: 6px; margin-right: 6px"></span>
+        cemetery,
+      </p>
+      <p>
+        to a third party purchaser (the "Transferee(s)").
+      </p>
+      <p>
+        I/We certify that the Interment Rights are being resold in accordance with the Funeral, Burial and Cremation Services Act
+        and regulations thereto, and the City of Sault Ste. Marie Cemetery By-law, as amended from time to time.
+      </p>
+      <p>
+        I/We further certify that the resale is for an amount no greater than the current value on the cemetery Price List.
+      </p>
+      <p>
+        I/We hereby acknowledge and direct the Corporation of the City of Sault Ste. Marie to enter the name of the Transferee(s)
+        listed below as the Interment Rights Holder.
+      </p>
+      <p>
+        And I/we make this solemn declaration conscientiously believing it to be true and knowing that it is of the same force and effect as if made under oath.
+      </p>
+
+      <table class="layout-table">
+        <tr>
+          <td>
+            <div class="blank-field">
+              <span class="blank-line" style="width: 300px"></span>
+              <div class="field-label">Interment Rights Holder(s)</div>
+            </div>
+            <div class="blank-field">
+              <span class="blank-line" style="width: 300px"></span>
+              <div class="field-label">Interment Rights Holder(s)</div>
+            </div>
+          </td>
+          <td>
+            <div class="blank-field">
+              <span class="blank-line" style="width: 360px"></span>
+              <div class="field-label">Cemetery</div>
+            </div>
+      
+            <p>
+              Sworn before me this
+              <span class="blank-line" style="width: 40px; margin-left: 6px; margin-right: 6px"></span>
+              day of
+              <span class="blank-line" style="width: 40px; margin-left: 6px; margin-right: 6px"></span>,
+              <span class="blank-line" style="width: 40px; margin-left: 6px"></span>
+            </p>
+
+            <div class="blank-field" style="max-width: 440px;">
+              <span class="blank-line" style="width: 260px"></span>
+              <div class="field-label">A Commissioner, etc.</div>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <h3>Part 2 - Acknowledgement of Transferee</h3>
+      <p>
+        I/We, the Transferee(s), acknowledge that we have received a current copy of the Cemetery By-law from the Interment Rights Holder(s).
+        I/we have reviewed the Cemetery By-law as it applies to the Interment rights and hereby agree to abide by the Cemetery By-law.
+      </p>
+      <p>
+        I/We have been informed by the Interment Rights Holder(s) that the Interment Rights being sold contain
+        <span class="blank-line" style="width: 40px; margin-left: 6px; margin-right: 6px"></span>
+        lots; that
+        <span class="blank-line" style="width: 40px; margin-left: 6px; margin-right: 6px"></span>
+        lots have not been utilized and
+        <span class="blank-line" style="width: 40px; margin-left: 6px; margin-right: 6px"></span>
+        lots remain available for future use.
+      </p>
+
+      <div class="blank-field">
+        <span class="blank-line" style="width: 100vw"></span>
+        <div class="field-label">Name of Transferee(s)</div>
+      </div>
+      <div class="blank-field">
+        <span class="blank-line" style="width: 100vw"></span>
+        <div class="field-label">Address</div>
+      </div>
+
+      <table class="layout-table">
+        <tr>
+          <td>
+            <div class="blank-field" style="max-width: 440px;">
+              <span class="blank-line" style="width: 220px"></span>
+              <div class="field-label">Transferee</div>
+            </div>
+          </td>
+          <td>
+            <div class="blank-field" style="max-width: 440px;">
+              <span class="blank-line" style="width: 220px"></span>
+              <div class="field-label">Transferee</div>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <h3>Part 3 - Cemetery Operator Acknowledgement and Acceptance</h3>
+      <p>
+        The Corporation of the City of Sault Ste. Marie hereby confirms that the cemetery records have been reviewed and that the above noted Interment Rights Holder(s) are registered on the cemetery records and have the authority to sell the Interment Rights to the Transferee(s). It is also confirmed that no money is owing by the Interment Rights Holder(s) to the Corporation of the City of Sault Ste. Marie in respect of the interment rights.
+      </p>
+      <p>
+        The Corporation of the City of Sault Ste. Marie hereby accepts and confirms that the sale has been recorded on the cemetery records and has issued a new Certificate of Interment Rights in the name of the Transferee(s).
+      </p>
+
+      <table class="layout-table">
+        <tr>
+          <td>
+            <p>
+              Date:
+              <span class="blank-line" style="width: 180px; margin-left: 6px"></span>
+            </p>
+          </td>
+          <td>
+            <div class="blank-field" style="max-width: 560px;">
+              <span class="blank-line" style="width: 280px"></span>
+              <div class="field-label">for the Corporation of the City of Sault Ste. Marie</div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
   </body>
 </html>
