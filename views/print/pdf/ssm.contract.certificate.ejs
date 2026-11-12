@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title><%= headTitle %></title>
+    <style>
+      <%- include('style.css'); %>
+
+      .data-table tbody tr:first-child td {
+        border-top: 0;
+
+      }
+    </style>
+  </head>
+  <body class="is-10pt">
+    <h1 class="is-12pt has-text-centered is-capitalized">
+      The Corporation of the City of Sault Ste. Marie<br />
+      <strong>Certificate of Interment Rights</strong>
+    </h1>
+
+    <table class="layout-table">
+      <tbody>
+        <tr>
+          <td>
+            <strong>Certificate No:</strong>
+            <%= contract.contractNumber %>
+          </td>
+          <td>
+            <strong>Date of Purchase:</strong>
+            <%= contract.contractStartDateString %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      Pursuant to the <i>Funeral, Burial and Cremation Services Act, 2002</i>
+      and Regulations and all amendments thereto:
+    </p>
+
+    <table class="layout-table is-10pt">
+      <tbody>
+        <tr>
+          <td>
+            <%= contract.purchaserName %><br />
+            <%= contract.purchaserAddress1 %><br />
+            <%= contract.purchaserAddress2 %><br />
+            <%= contract.purchaserCity %> <%= contract.purchaserProvince %><br />
+            <%= contract.purchaserPostalCode %>
+          </td>
+          <td>
+            <table class="is-10pt data-table">
+              <tbody>
+                <%
+                let currentFeeCategory = "";
+                let feeAmountTotal = 0;
+                let taxAmountTotal = 0;
+                %>
+                <% for (const fee of contract.contractFees) { %>
+
+                <% if (currentFeeCategory !== fee.feeCategory) { %>
+                <tr>
+                  <td colspan="3">
+                    <strong><%= fee.feeCategory %></strong>
+                  </td>
+                </tr>
+                <% currentFeeCategory = fee.feeCategory; %>
+                <% } %>
+
+                <tr>
+                  <td
+                    colspan="<%= (fee.quantity === 1) ? '2' : '1' %>"
+                  >
+                    <%= fee.feeName %>
+                  </td>
+                  <% if (fee.quantity !== 1) { %>
+                  <td class="has-text-right is-8pt has-text-nowrap">
+                    $<%= fee.feeAmount.toFixed(2) %>
+                    &times;
+                    <%= fee.quantity %>
+                  </td>
+                  <% } %>
+                  <td class="has-text-right">
+                    $<%= fee.feeAmount.toFixed(2) %>
+                  </td>
+                </tr>
+
+                <%
+                feeAmountTotal += fee.feeAmount * fee.quantity;
+                taxAmountTotal += fee.taxAmount * fee.quantity;
+                %>
+                <% } %>
+
+                <tr>
+                  <td colspan="2"><strong>Sub Total</strong></td>
+                  <td class="has-text-right">
+                    <strong>$<%= feeAmountTotal.toFixed(2) %></strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">HST</td>
+                  <td class="has-text-right">
+                    $<%= taxAmountTotal.toFixed(2) %>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2"><strong>Total Sale</strong></td>
+                  <td class="has-text-right">
+                    <strong>$<%= (feeAmountTotal + taxAmountTotal).toFixed(2) %></strong>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      The Purchaser, by acceptance of this Certificate, indicates that the City of Sault Ste. Marie by-law governing the operation
+      of the cemetery has been received and read, and agrees to be guided by the said by-law as well as provisions of the
+      <em>Funeral, Burial and Cremation Services Act, 2002</em> as if these were included as part of this Certificate.
+    </p>
+
+    <p>
+      Private transfer or resale of the above listed interment rights to a third party are permitted subject to the provisions of City
+      of Sault Ste. Marie cemetery by-law and the <em>Funeral, Burial and Cremation Services Act, 2002</em>. This Certificate must be
+      endorsed and returned to the City of Sault Ste. Marie as part of any transfer or resale process.
+    </p>
+
+    <p>
+      With respect of the erection or installation of markers, the Purchaser agrees to abide by the terms of the City of Sault Ste.
+      Marie cemetery by-law and the <em>Funeral, Burial and Cremation Services Act, 2002</em> wherein restrictions on the erection or
+      installation of markers are given.
+    </p>
+
+    <p>
+      The Purchaser acknowledges and provides consent to permit the Corporation of the City of Sault Ste. Marie to collect, use
+      and disclose your personal information in accordance with the requirements under the
+      <em>Funeral, Burial and Cremation Services Act</em> and any regulations thereto for information within the cemetery/crematorium public register. The Purchaser
+      also understands that the Corporation of the City of Sault Ste. Marie does not rent or sell personal information to third party organizations.
+    </p>
+
+    <p>
+      This Interment Rights Certificate conveys only the right of interment and the right to install a marker or vault. No other right of title
+      or interest is conveyed.
+    </p>
+
+    <p>In WITNESS whereof the Corporation has affixed its signature by the hands of its proper signing officers this</p>
+
+  </body>
+</html>

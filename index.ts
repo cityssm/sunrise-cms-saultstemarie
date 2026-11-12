@@ -66,6 +66,11 @@ export default {
       'ssm.contract.burialPermit': {
         params: ['contractId'],
         title: 'Burial Permit'
+      },
+
+      'ssm.contract.certificate': {
+        params: ['contractId'],
+        title: 'Certificate of Interment Rights'
       }
     }
   }

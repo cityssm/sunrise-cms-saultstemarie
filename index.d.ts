@@ -19,6 +19,10 @@ declare const _default: {
                 params: "contractId"[];
                 title: string;
             };
+            'ssm.contract.certificate': {
+                params: "contractId"[];
+                title: string;
+            };
         };
     };
 };
