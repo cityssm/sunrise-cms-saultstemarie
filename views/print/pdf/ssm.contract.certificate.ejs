@@ -69,11 +69,11 @@
       and Regulations and all amendments thereto:
     </p>
 
-    <table class="layout-table is-12pt">
+    <table class="layout-table is-12pt" style="table-layout:fixed">
       <tbody>
         <tr>
           <td>
-            <%= contract.purchaserName %><br />
+            <%= contract.purchaserName === '' ? '(No Purchaser Name)' : contract.purchaserName %><br />
             <%= contract.purchaserAddress1 %><br />
             <%= contract.purchaserAddress2 %><br />
             <%= contract.purchaserCity %> <%= contract.purchaserProvince %><br />
