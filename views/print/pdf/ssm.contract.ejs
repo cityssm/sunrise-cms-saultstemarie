@@ -1,4 +1,5 @@
-<html>
+<!doctype html>
+<html lang="en">
   <head>
     <title><%= headTitle %></title>
     <style>
@@ -62,18 +63,27 @@
       The Corporation of the City of Sault Ste. Marie, 99 Foster Drive<br />
       Sault Ste. Marie Ontario &nbsp; P6A 5X6
     </p>
-    <p>
-      Contract No.
-      <span class="field">
-        <%= contract.contractNumber %>
-      </span>
-    </p>
-    <p>
-      Date of Purchase
-      <span class="field">
-        <%= contract.contractStartDateString %>
-      </span>
-    </p>
+    <table class="layout-table is-10pt" style="table-layout:fixed">
+      <tr>
+        <td>
+          <p>
+            <strong>Contract No.</strong><br />
+            <span class="field" style="width:100%">
+              <%= contract.contractNumber %>
+            </span>
+          </p>
+        </td>
+        <td>
+          <p>
+            <strong>Date of Purchase</strong><br />
+            <span class="field" style="width:100%">
+              <%= contract.contractStartDateString %>
+            </span>
+          </p>
+        </td>
+      </tr>
+    </table>
+    <br />
     <table class="layout-table is-10pt" style="table-layout:fixed">
       <tbody>
         <tr>
@@ -86,24 +96,31 @@
                   <td class="has-border-bottom">
                     <%= contract.purchaserName %>
                   </td>
-                </tr><tr>
-                  <th class="has-text-left" rowspan="2" style="vertical-align:top">Address:</th>
+                </tr>
+                <tr>
+                  <th class="has-text-left" style="vertical-align:top" rowspan="2">Address:</th>
                   <td class="has-border-bottom"><%= contract.purchaserAddress1 %>&nbsp;</td>
-                </tr><tr>
+                </tr>
+                <tr>
                   <td class="has-border-bottom"><%= contract.purchaserAddress2 %>&nbsp;</td>
-                </tr><tr>
+                </tr>
+                <tr>
                   <th class="has-text-left">City:</th>
                   <td class="has-border-bottom"><%= contract.purchaserCity %>&nbsp;</td>
-                </tr><tr>
+                </tr>
+                <tr>
                   <th class="has-text-left">Province:</th>
                   <td class="has-border-bottom"><%= contract.purchaserProvince %>&nbsp;</td>
-                </tr><tr>
+                </tr>
+                <tr>
                   <th class="has-text-left has-text-nowrap">Postal Code:</th>
                   <td class="has-border-bottom" style="width:100%"><%= contract.purchaserPostalCode %>&nbsp;</td>
-                </tr><tr>
+                </tr>
+                <tr>
                   <th class="has-text-left">Telephone:</th>
                   <td class="has-border-bottom"><%= contract.purchaserPhoneNumber %>&nbsp;</td>
-                </tr><tr>
+                </tr>
+                <tr>
                   <th class="has-text-left">E-mail:</th>
                   <td class="has-border-bottom"><%= contract.purchaserEmail %>&nbsp;</td>
                 </tr>
@@ -112,9 +129,7 @@
           </td>
           <td>
             <h2 class="is-10pt">Recipient</h2>
-            <%
-              const recipient = contract.contractInterments[0]
-            %>
+            <% const recipient = contract.contractInterments[0] %>
             <table class="is-10pt layout-table">
               <tbody>
                 <tr>
@@ -122,18 +137,23 @@
                   <td class="has-border-bottom">
                     <%= recipient ? recipient.deceasedName : "" %>
                   </td>
-                </tr><tr>
-                  <th class="has-text-left" rowspan="2" style="vertical-align:top">Address:</th>
+                </tr>
+                <tr>
+                  <th class="has-text-left" style="vertical-align:top" rowspan="2">Address:</th>
                   <td class="has-border-bottom"><%= recipient ? recipient.deceasedAddress1 : "" %>&nbsp;</td>
-                </tr><tr>
+                </tr>
+                <tr>
                   <td class="has-border-bottom"><%= recipient ? recipient.deceasedAddress2 : "" %>&nbsp;</td>
-                </tr><tr>
+                </tr>
+                <tr>
                   <th class="has-text-left">City:</th>
                   <td class="has-border-bottom"><%= recipient ? recipient.deceasedCity : "" %>&nbsp;</td>
-                </tr><tr>
+                </tr>
+                <tr>
                   <th class="has-text-left">Province:</th>
                   <td class="has-border-bottom"><%= recipient ? recipient.deceasedProvince : "" %>&nbsp;</td>
-                </tr><tr>
+                </tr>
+                <tr>
                   <th class="has-text-left">Postal Code:</th>
                   <td class="has-border-bottom"><%= recipient ? recipient.deceasedPostalCode : "" %>&nbsp;</td>
                 </tr>
@@ -145,7 +165,7 @@
     </table>
     <p>
       Purchaser's relationship to Recipient:
-      <span class="field" style="width:550px">
+      <span class="field" style="width:100%">
         <%= contract.purchaserRelationship %>
         &nbsp;
       </span>
@@ -159,9 +179,9 @@
     <p>
       The Purchaser (if different than the Recipient)
       represents being legally authorized or charged with the responsibility for
-      the Recipient's interment rights and prepaid cemetery services 
+      the Recipient's interment rights and prepaid cemetery services
       specified in this Contract. This Contract will be enforceable to
-      the benefit of and be binding upon the parties hereto 
+      the benefit of and be binding upon the parties hereto
       and their respective heirs, executors, administrators, successors, and assigns.
     </p>
     <table class="layout-table" style="table-layout:fixed">
@@ -177,18 +197,15 @@
               <td>Burial Site</td>
               <td><%= contract.burialSiteName ?? '(No Burial Site)' %></td>
             </tr>
-            <% 
-              for (const field of contract.contractFields) { 
-                if (field.fieldValue) {
-            %>
-                <tr>
-                  <td><%= field.contractTypeField %></td>
-                  <td><%= field.fieldValue %></td>
-                </tr>
-            <% 
-                }
-              }
-            %>
+
+            <% for (const field of contract.contractFields) { %>
+            <% if (field.fieldValue) { %>
+            <tr>
+              <td><%= field.contractTypeField %></td>
+              <td><%= field.fieldValue %></td>
+            </tr>
+            <% } %>
+            <% } %>
           </table>
         </td>
         <td>
@@ -202,15 +219,16 @@
               %>
               <% for (const fee of contract.contractFees) { %>
                 <% if (currentFeeCategory !== fee.feeCategory) { %>
-                  <tr>
-                    <td colspan="3">
-                      <strong><%= fee.feeCategory %></strong>
-                    </td>
-                  </tr>
-                  <% currentFeeCategory = fee.feeCategory; %>
-                <% } %>
                 <tr>
-                  <td <% if (fee.quantity === 1) { %>colspan="2"<% } %>>
+                  <td colspan="3">
+                    <strong><%= fee.feeCategory %></strong>
+                  </td>
+                </tr>
+                <% currentFeeCategory = fee.feeCategory; %>
+                <% } %>
+
+                <tr>
+                  <td colspan="<%= fee.quantity === 1 ? 2 : 1 %>">
                     <%= fee.feeName %>
                   </td>
                   <% if (fee.quantity !== 1) { %>
@@ -234,23 +252,26 @@
                 <td class="has-text-right">
                   <strong>$<%= feeAmountTotal.toFixed(2) %></strong>
                 </td>
-              </tr><tr>
+              </tr>
+              <tr>
                 <td colspan="2">HST</td>
                 <td class="has-text-right">
                   $<%= taxAmountTotal.toFixed(2) %>
                 </td>
-              </tr><tr>
+              </tr>
+              <tr>
                 <td colspan="2"><strong>Total Sale</strong></td>
                 <td class="has-text-right">
                   <strong>$<%= (feeAmountTotal + taxAmountTotal).toFixed(2) %></strong>
                 </td>
-              </tr><tr>
+              </tr>
+              <tr>
                 <td colspan="2"><strong>Balance Owing</strong></td>
                 <td class="has-text-right">
                   <% if ((feeAmountTotal + taxAmountTotal).toFixed(2) === contractFunctions.getTransactionTotal(contract).toFixed(2)) { %>
-                    <strong>$0.00</strong>
+                  <strong>$0.00</strong>
                   <% } else { %>
-                    <strong>$<%= (feeAmountTotal + taxAmountTotal - contractFunctions.getTransactionTotal(contract)).toFixed(2) %></strong>
+                  <strong>$<%= (feeAmountTotal + taxAmountTotal - contractFunctions.getTransactionTotal(contract)).toFixed(2) %></strong>
                   <% } %>
                 </td>
               </tr>
@@ -415,8 +436,8 @@
     <h2 class="is-10pt">Consumer Information Guide and Cemetery Price List</h2>
 
     <p>
-        By initialling below, the Purchaser acknowledges receiving a copy of the Ontario Government's Consumer Information
-        Guide (where made available by the Registrar) and the Cemetery Price List at the time of entering into this Contract.
+      By initialling below, the Purchaser acknowledges receiving a copy of the Ontario Government's Consumer Information
+      Guide (where made available by the Registrar) and the Cemetery Price List at the time of entering into this Contract.
     </p>
 
     <table class="layout-table is-10pt">
