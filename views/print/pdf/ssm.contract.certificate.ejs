@@ -147,6 +147,27 @@
       </tbody>
     </table>
 
+    <table class="layout-table is-12pt" style="table-layout:fixed">
+      <tbody>
+        <tr>
+          <td>Cemetery</td>
+          <td><%= contract.cemeteryName ?? '(No Cemetery)' %></td>
+        </tr>
+        <tr>
+          <td>Burial Site</td>
+          <td><%= contract.burialSiteName ?? '(No Burial Site)' %></td>
+        </tr>
+        <% for (const field of contract.contractFields) { %>
+        <% if (field.fieldValue) { %>
+        <tr>
+          <td><%= field.contractTypeField %></td>
+          <td><%= field.fieldValue %></td>
+        </tr>
+        <% } %>
+        <% } %>
+      </tbody>
+    </table>
+
     <p>
       The Purchaser, by acceptance of this Certificate, indicates that the City of Sault Ste. Marie by-law governing the operation
       of the cemetery has been received and read, and agrees to be guided by the said by-law as well as provisions of the
