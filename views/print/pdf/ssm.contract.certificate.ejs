@@ -49,7 +49,7 @@
       <strong>Certificate of Interment Rights</strong>
     </h1>
 
-    <table class="layout-table">
+    <table class="layout-table" style="table-layout:fixed">
       <tbody>
         <tr>
           <td>
@@ -148,30 +148,31 @@
     </table>
 
     <%
-      const bodyCapacity = burialSite?.bodyCapacity ??
-        burialSite?.bodyCapacityMax
-      const crematedCapacity = burialSite?.crematedCapacity ??
-        burialSite?.crematedCapacityMax
+    const bodyCapacity = burialSite?.bodyCapacity ?? burialSite?.bodyCapacityMax
+
+    const crematedCapacity = burialSite?.crematedCapacity ?? burialSite?.crematedCapacityMax
     %>
-    <table class="layout-table is-12pt" style="table-layout:fixed">
+    <table class="layout-table is-12pt">
       <tbody>
         <tr>
-          <td>Cemetery</td>
+          <td>
+            <strong>Cemetery:</strong>
+          </td>
           <td><%= burialSite?.cemeteryName ?? contract.cemeteryName ?? '(No Cemetery)' %></td>
         </tr>
         <tr>
-          <td>Burial Site</td>
-          <td><%= burialSite?.burialSiteName ?? contract.burialSiteName ?? '(No Burial Site)' %></td>
+          <td style="white-space: nowrap;"><strong>Burial Site:</strong></td>
+          <td style="width: 100%"><%= burialSite?.burialSiteName ?? contract.burialSiteName ?? '(No Burial Site)' %></td>
         </tr>
         <% if (bodyCapacity !== 0 && bodyCapacity !== '0' && bodyCapacity !== undefined) { %>
         <tr>
-          <td>Max Body Capacity</td>
+          <td style="white-space: nowrap;"><strong>Max Body Capacity:</strong></td>
           <td><%= bodyCapacity === null ? 'Unlimited' : bodyCapacity %></td>
         </tr>
         <% } %>
         <% if (crematedCapacity !== 0 && crematedCapacity !== '0' && crematedCapacity !== undefined) { %>
         <tr>
-          <td>Max Cremated Capacity</td>
+          <td style="white-space: nowrap;"><strong>Max Cremated Capacity:</strong></td>
           <td><%= crematedCapacity === null ? 'Unlimited' : crematedCapacity %></td>
         </tr>
         <% } %>
