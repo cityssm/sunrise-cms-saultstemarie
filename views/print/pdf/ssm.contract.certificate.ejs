@@ -147,23 +147,33 @@
       </tbody>
     </table>
 
+    <%
+      const bodyCapacity = burialSite?.bodyCapacity ??
+        burialSite?.bodyCapacityMax
+      const crematedCapacity = burialSite?.crematedCapacity ??
+        burialSite?.crematedCapacityMax
+    %>
     <table class="layout-table is-12pt" style="table-layout:fixed">
       <tbody>
         <tr>
           <td>Cemetery</td>
-          <td><%= contract.cemeteryName ?? '(No Cemetery)' %></td>
+          <td><%= burialSite?.cemeteryName ?? contract.cemeteryName ?? '(No Cemetery)' %></td>
         </tr>
         <tr>
           <td>Burial Site</td>
-          <td><%= contract.burialSiteName ?? '(No Burial Site)' %></td>
+          <td><%= burialSite?.burialSiteName ?? contract.burialSiteName ?? '(No Burial Site)' %></td>
         </tr>
-        <% for (const field of contract.contractFields) { %>
-        <% if (field.fieldValue) { %>
+        <% if (bodyCapacity !== 0 && bodyCapacity !== '0' && bodyCapacity !== undefined) { %>
         <tr>
-          <td><%= field.contractTypeField %></td>
-          <td><%= field.fieldValue %></td>
+          <td>Max Body Capacity</td>
+          <td><%= bodyCapacity === null ? 'Unlimited' : bodyCapacity %></td>
         </tr>
         <% } %>
+        <% if (crematedCapacity !== 0 && crematedCapacity !== '0' && crematedCapacity !== undefined) { %>
+        <tr>
+          <td>Max Cremated Capacity</td>
+          <td><%= crematedCapacity === null ? 'Unlimited' : crematedCapacity %></td>
+        </tr>
         <% } %>
       </tbody>
     </table>
