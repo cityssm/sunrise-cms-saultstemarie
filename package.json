@@ -3,32 +3,38 @@
   "version": "1.0.20250728",
   "private": true,
   "description": "Sault Ste. Marie specific assets for use with Sunrise CMS.",
-  "keywords": [
-    "sunrise-cms"
-  ],
-  "homepage": "https://github.com/cityssm/sunrise-cms-saultstemarie#readme",
-  "bugs": {
-    "url": "https://github.com/cityssm/sunrise-cms-saultstemarie/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cityssm/sunrise-cms-saultstemarie.git"
-  },
   "license": "MIT",
+  "repository": "github:cityssm/sunrise-cms-saultstemarie",
   "author": "The Corporation of the City of Sault Ste. Marie",
   "type": "module",
   "exports": {
     ".": "./index.js"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "sideEffects": false,
+  "engines": {
+    "node": ">=24"
   },
+  "scripts": {
+    "lint:cspell": "cspell lint \"**/*.{ts,ejs,css,md}\"",
+    "lint:editorconfig": "editorconfig-checker",
+    "lint:eslint:css": "eslint views/**/*.css",
+    "lint:eslint:ejs": "eslint views/**/*.ejs",
+    "lint:eslint:md": "eslint **/*.md",
+    "lint:markdown": "markdownlint-cli2 --config .markdownlint.json \"**/*.md\" \"#node_modules\" \"#.github\"",
+    "lint:prettier": "prettier --check \"**/*.{ts,css}\" --config prettier.config.js"
+  },
+  "keywords": [
+    "sunrise-cms"
+  ],
   "dependencies": {
     "sunrise-cms-customizations": "^0.0.2"
   },
   "devDependencies": {
-    "@types/node": "^26.6.6",
-    "eslint-config-cityssm": "^60.0.1",
-    "prettier-config-cityssm": "^2.3.0"
+    "@types/node": "^26.6.11",
+    "cspell-cli": "^10.5.0",
+    "editorconfig-checker": "^7.0.0",
+    "eslint-config-cityssm": "^62.1.0",
+    "markdownlint-cli2": "^0.24.2",
+    "prettier-config-cityssm": "^3.0.0"
   }
 }

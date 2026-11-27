@@ -1,6 +1,6 @@
 <% const deceased = contract.contractInterments[0]; %>
-
-<html>
+<!doctype html>
+<html lang="en">
   <head>
     <title><%= headTitle %></title>
     <style>
@@ -33,7 +33,7 @@
 
     <p class="has-text-centered">
       <% if (!contract.isPreneed && deceased !== undefined) { %>
-        <strong><%= deceased.deceasedName %></strong>
+      <strong><%= deceased.deceasedName %></strong>
       <% } %>
     </p>
 
